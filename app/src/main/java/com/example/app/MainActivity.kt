@@ -19,7 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.rememberSaveable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -47,10 +47,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun AppContent() {
-    var showResult by rememberSaveable { mutableStateOf(false) }
+    var showResult by remember { mutableStateOf(false) }
 
     // Estado principal que conserva la información enviada entre pantallas.
-    var formData by rememberSaveable {
+    var formData by remember {
         mutableStateOf(FormData())
     }
 
