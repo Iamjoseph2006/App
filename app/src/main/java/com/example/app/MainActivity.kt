@@ -29,7 +29,8 @@ import com.example.app.ui.theme.AppTheme
 
 data class FormData(
     val nombre: String = "",
-    val correoOEdad: String = "",
+    val correo: String = "",
+    val edad: String = "",
     val mensaje: String = ""
 )
 
@@ -94,21 +95,35 @@ fun PantallaFormulario(
         Spacer(modifier = Modifier.height(16.dp))
 
         // Captura del nombre en el formulario.
+        Text(text = "Nombre")
+        Spacer(modifier = Modifier.height(4.dp))
         OutlinedTextField(
             value = formData.nombre,
             onValueChange = { onFormDataChange(formData.copy(nombre = it)) },
-            label = { Text("Nombre") },
             modifier = Modifier.fillMaxWidth(),
             singleLine = true
         )
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        // Captura del correo o edad en el formulario.
+        // Captura del correo en el formulario.
+        Text(text = "Correo")
+        Spacer(modifier = Modifier.height(4.dp))
         OutlinedTextField(
-            value = formData.correoOEdad,
-            onValueChange = { onFormDataChange(formData.copy(correoOEdad = it)) },
-            label = { Text("Correo o edad") },
+            value = formData.correo,
+            onValueChange = { onFormDataChange(formData.copy(correo = it)) },
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true
+        )
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        // Captura de la edad en el formulario.
+        Text(text = "Edad")
+        Spacer(modifier = Modifier.height(4.dp))
+        OutlinedTextField(
+            value = formData.edad,
+            onValueChange = { onFormDataChange(formData.copy(edad = it)) },
             modifier = Modifier.fillMaxWidth(),
             singleLine = true
         )
@@ -116,10 +131,11 @@ fun PantallaFormulario(
         Spacer(modifier = Modifier.height(12.dp))
 
         // Captura del mensaje en el formulario.
+        Text(text = "Mensaje")
+        Spacer(modifier = Modifier.height(4.dp))
         OutlinedTextField(
             value = formData.mensaje,
             onValueChange = { onFormDataChange(formData.copy(mensaje = it)) },
-            label = { Text("Mensaje") },
             modifier = Modifier.fillMaxWidth(),
             minLines = 3
         )
@@ -157,7 +173,9 @@ fun PantallaResultado(
         // Aquí se muestra la información recibida desde la pantalla de formulario.
         Text(text = "Nombre: ${formData.nombre}")
         Spacer(modifier = Modifier.height(8.dp))
-        Text(text = "Correo o edad: ${formData.correoOEdad}")
+        Text(text = "Correo: ${formData.correo}")
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(text = "Edad: ${formData.edad}")
         Spacer(modifier = Modifier.height(8.dp))
         Text(text = "Mensaje: ${formData.mensaje}")
 
